@@ -26,7 +26,7 @@
 | 김선호 | [@KSH0326](https://github.com/KSH0326) | 스터디 플래너 |
 | **남기은** | [@namgigun](https://github.com/namgigun) | **PO, 인프라 관리, CI/CD 파이프라인 구축, S3 파일 관리 API 제공** |
 | 조예원 | [@joyewon0705](https://github.com/joyewon0705) | 사용자 인증/인가, 커뮤니티 |
-| 진민호 | [@loseminho](https://github.com/loseminho) | 스터디룸 |
+| 진민호 | [@loseminho](https://github.com/loseminho) | 스터디룸 방 관리 |
 
 <br/><br/>
 
