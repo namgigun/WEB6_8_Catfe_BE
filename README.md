@@ -437,6 +437,7 @@ public PresignedUrlResponseDto generateUploadPresignedUrl(String folder, String 
       return new PresignedUrlResponseDto(presignedRequest.url().toString(), objectUrl);
 }
 ```
+<br/><br/>
 
 ## 🚨 트러블 슈팅
 
@@ -463,6 +464,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
 **결과**
 - 해당 설정 적용 후, 서버에서 HTTPS 요청을 정상적으로 인식
+- 구글 로그인 성공
 
 <br/>
 
