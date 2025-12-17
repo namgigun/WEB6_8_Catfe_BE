@@ -6,7 +6,8 @@
 <br/>
 
 ## 📖 프로젝트 개요
-**Catfé**는 온라인 공간에서 실시간으로 소통하며 함께 공부하는 **스터디 카페 플랫폼**입니다
+**Catfé**는 온라인 공간에서 실시간으로 소통하며 함께 공부하는 스터디 카페 플랫폼으로,  
+실시간 스터디룸, 일정 관리, 커뮤니티, 파일 공유 기능을 통합 제공하는 협업 중심 서비스입니다.
 
 <br/>
 
@@ -20,11 +21,11 @@
 ## 👥 팀원 소개
 
 | 이름 | 프로필 | 역할 |
-|------|----------|------|
-| 김주은 | [@jueunk617](https://github.com/jueunk617) | 백엔드 팀장, 스터디룸 상호작용(캠, 화면 공유, 마이크, 채팅), 알림 |
-| 김선호 |  [@KSH0326](https://github.com/KSH0326)| 스터디 플래너 |
-| 남기은| [@namgigun](https://github.com/namgigun) | PO, 인프라 관리, CI/CD 파이프라인 구축, S3 파일 관리를 할 수 있는 API 제공 |
-| 조예원 | [@joyewon0705](https://github.com/joyewon0705)| 사용자 인증/인가, 커뮤니티 |
+|------|--------|------|
+| 김주은 | [@jueunk617](https://github.com/jueunk617) | 백엔드 팀장, 스터디룸 상호작용(캠·화면 공유·마이크·채팅), 알림 |
+| 김선호 | [@KSH0326](https://github.com/KSH0326) | 스터디 플래너 |
+| **남기은** | [@namgigun](https://github.com/namgigun) | **PO, 인프라 관리, CI/CD 파이프라인 구축, S3 파일 관리 API 제공** |
+| 조예원 | [@joyewon0705](https://github.com/joyewon0705) | 사용자 인증/인가, 커뮤니티 |
 | 진민호 | [@loseminho](https://github.com/loseminho) | 스터디룸 |
 
 <br/><br/>
@@ -33,13 +34,12 @@
 
 | 기능 | 설명 |
 |------|------|
-| 🏠 **스터디룸** | 팀원들과 화면 공유, 캠, 마이크를 통해 상호작용 할 수 있는 실시간 학습 공간 제공 |
-| 📅 **스터디 플래너** | 목표 설정 및 일정 관리 기능 제공 |
-| 💬 **커뮤니티** | 스터디 그룹 탐색, 팀원 모집 |
-| 📁 **파일 관리** | S3 연동을 통한 이미지 및 파일 업로드 |
+| 🏠 스터디룸 | 화면 공유, 캠, 마이크를 통한 실시간 학습 공간 |
+| 📅 스터디 플래너 | 목표 설정 및 일정 관리 |
+| 💬 커뮤니티 | 스터디 그룹 탐색 및 팀원 모집 |
+| 📁 파일 관리 | S3 연동 이미지 및 파일 업로드 |
 
 <br/><br/>
-
 
 ## 🛠 기술 스택
 
@@ -72,7 +72,7 @@
 <img width="900" height="600" alt="image" src="https://github.com/user-attachments/assets/63799042-abc7-4b97-a9e4-e6b4045bf829" />
 
 
-## 팀 내 수행 역할
+## 👤 팀 내 수행 역할
 
 ### 개발 프로세스 및 협업 환경 설계
 
@@ -168,7 +168,7 @@ Feat: 로그인 함수 추가 -> 제목
 
 <br/>
 
-### 인프라 관리
+### 인프라 관리 (Terraform)
 
 **설계의도**
 - AWS 콘솔에서 수동 설정 없이, 인프라 구성을 코드로 정의하고 관리하기 위해 **Infrastructure as Code(IaC)** 방식으로 Terraform을 도입
@@ -178,7 +178,7 @@ Feat: 로그인 함수 추가 -> 제목
 
 **수행내용**
 
-- AWS 인프라를 Terraform 코드로 관리
+- AWS 리소스 Terraform 코드로 관리
 ```hcl
 resource "aws_instance" "ec2_1" {
   ami           = "ami-077ad873396d76f6a"
@@ -354,13 +354,13 @@ buildImageAndPush:
 
 **구현 목적** 
 <br/><br/>
-프론트엔드에서 S3에 파일과 관련된 기능을 백엔드 API를 통해 처리할 수 있도록 파일 업로드 API를 구현
+프론트엔드에서 S3에 파일과 관련된 기능을 백엔드 API를 통해 처리할 수 있도록 구현
 
 <br/>
 
 **구현 방식** 
 <br/><br/>
-파일 업로드 방식은 사용 목적과 파일 크기에 따라 MultiPartFile 방식과 Presigned URL 방식을 병행하여 구현하였다.
+파일 업로드 방식은 사용 목적과 파일 크기에 따라 MultiPartFile 방식과 Presigned URL 방식을 병행하여 구현
 
 1. MultiPartFile 기반 파일 업로드
 
@@ -438,7 +438,7 @@ public PresignedUrlResponseDto generateUploadPresignedUrl(String folder, String 
 }
 ```
 
-## 트러블 슈팅
+## 🚨 트러블 슈팅
 
 ### 구글 로그인 redirect_uri_mismatch 문제
 
