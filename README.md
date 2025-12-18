@@ -444,7 +444,7 @@ public PresignedUrlResponseDto generateUploadPresignedUrl(String folder, String 
 ### 구글 로그인 redirect_uri_mismatch 문제
 
 **문제 상황**
-- 배포 환경에서 구글 소셜 로그인 테스트 중 `redirect_uri_mismatch` 오류가 발생하여 로그인 진행 불가
+- 배포 환경에서 구글 로그인 테스트 중 `redirect_uri_mismatch` 오류가 발생하여 로그인 진행 불가
 
 **원인 분석**
 - 클라이언트는 HTTPS로 요청을 전송했으나, Nginx를 거쳐 Spring 서버로 전달되는 과정에서 프로토콜 정보가 전달되지 않음
