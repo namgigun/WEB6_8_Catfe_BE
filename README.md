@@ -506,7 +506,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 - MultipartFile 방식은 클라이언트가 업로드한 파일을 서버가 직접 수신하고 처리한 후 S3로 전달하는 구조
 - 대용량 파일의 경우 요청 처리 시간이 길어져 서버 타임아웃이 발생
 
-**접근 방식**
+**해결 방법**
 - 서버가 대용량 파일을 직접 처리하는 구조 자체를 제거하기 위해 Presigned URL 기반 파일 업로드 방식을 도입
 - 서버는 S3에 업로드 가능한 Presigned URL만 발급
 - 클라이언트는 발급받은 Presigned URL을 통해 S3에 직접 파일 업로드
