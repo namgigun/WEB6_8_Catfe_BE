@@ -66,7 +66,7 @@
 
 ## CI/CD
 
-<img width="900" height="600" alt="image" src="https://github.com/user-attachments/assets/63799042-abc7-4b97-a9e4-e6b4045bf829" />
+<img width="900" height="300" alt="image" src="https://github.com/user-attachments/assets/63799042-abc7-4b97-a9e4-e6b4045bf829" />
 
 
 ## 👤 팀 내 수행 역할
