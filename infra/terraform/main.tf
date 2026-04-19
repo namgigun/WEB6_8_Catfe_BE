@@ -430,7 +430,7 @@ output "coturn_server_public_ip" {
 
 # EC2 역할에 AmazonS3FullAccess 정책을 부착
 resource "aws_iam_role_policy_attachment" "s3_full_access" {
-  role = aws_iam_role.ec2_role_1.name
+  role       = aws_iam_role.ec2_role_1.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
@@ -438,9 +438,9 @@ resource "aws_iam_role_policy_attachment" "s3_full_access" {
 resource "aws_s3_bucket_public_access_block" "public-access" {
   bucket = aws_s3_bucket.s3_1.id
 
-  block_public_acls = false
-  block_public_policy = false
-  ignore_public_acls = false
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
   restrict_public_buckets = false
 }
 
@@ -462,6 +462,22 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
       "Principal": "*",
       "Action":["s3:GetObject"],
       "Resource":["arn:aws:s3:::${aws_s3_bucket.s3_1.id}/*"]
+    },
+
+    {
+      "Sid": "DenyNonHttps",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::catfe-s3-1",
+        "arn:aws:s3:::catfe-s3-1/*"
+      ],
+      "Condition": {
+        "Bool": {
+          "aws:SecureTransport": "false"
+        }
+      }
     }
   ]
 }
@@ -472,8 +488,8 @@ POLICY
 resource "aws_s3_bucket" "s3_1" {
   bucket = "catfe-s3-1"
   tags = {
-    Key = "TEAM"
+    Key   = "TEAM"
     Value = "devcos-team05"
-    Name = "team5-s3-1"
+    Name  = "team5-s3-1"
   }
 }

@@ -38,7 +38,7 @@ public class PresignedUrlService {
         // Presigned URL 발급 요청
         PresignedPutObjectRequest presignedRequest = s3Presigner.presignPutObject(
                 request -> request.putObjectRequest(objectRequest)
-                        .signatureDuration(Duration.ofMinutes(5L))
+                        .signatureDuration(Duration.ofMinutes(2L))
         );
 
         String objectUrl = String.format(

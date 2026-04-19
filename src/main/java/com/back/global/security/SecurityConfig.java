@@ -76,8 +76,8 @@ public class SecurityConfig {
                                 // 커뮤니티 관련
                                 .requestMatchers(HttpMethod.GET, "/api/posts/**").permitAll()
 
-                                // 파일 관련 (테스트 용)
-//                                .requestMatchers("api/file/**").permitAll()
+                                // 파일 업로드 테스트용 (운영서버에서는 주석처리)
+//                                .requestMatchers("api/presigned-urls/**").permitAll()
 
                                 // 그 외 모든 요청은 인증 필요
                                 .anyRequest().authenticated()
