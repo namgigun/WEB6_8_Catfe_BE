@@ -3,7 +3,7 @@
 실시간 스터디룸, 일정 관리, 커뮤니티, 파일 공유 기능을 통합 제공하는 협업 중심 서비스입니다.
 
 <p>
-  <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/ab34784a-1236-4dd2-918c-49277a460457" />
+  <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/ab34784a-1236-4dd2-918c-49277a460457" />
 <p/>
 
 <br/>
