@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/file")
+@RequestMapping("/api/presigned-urls")
 @RequiredArgsConstructor
 @Tag(
         name = "Presigned URL API",
@@ -21,9 +21,9 @@ public class PresignedUrlController {
     private final PresignedUrlService presignedUrlService;
 
     /**
-     * 업로드용 Presigned URL 발급 (대용량 업데이트 용)
+     * 업로드용 Presigned URL 발급
      */
-    @GetMapping("/presigned-upload")
+    @GetMapping
     @Operation(
             summary = "S3 업로드용 Presigned URL 발급",
             description = "S3 Direct Upload를 위해 Presigned URL과 업로드 대상 객체 정보를 반환합니다."
@@ -54,7 +54,7 @@ public class PresignedUrlController {
         presignedUrlService.deleteFile(objectUrl);
 
         return ResponseEntity
-                .status(HttpStatus.NO_CONTENT)
+                .status(HttpStatus.OK)
                 .body(RsData.success("S3 오브젝트 삭제 성공"));
     }
 }

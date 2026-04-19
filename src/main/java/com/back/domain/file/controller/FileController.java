@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/file")
+@RequestMapping("/api/files")
 @Validated
 @Tag(
         name =  "파일 관리 API",
@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.*;
 public class FileController {
     private final FileService fileService;
 
-    @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Operation(
             summary = "파일 업로드",
             description = "MultipartFile을 업로드하고, 저장된 파일의 식별자(attachmentId)와 Public URL을 반환합니다."
@@ -41,13 +41,13 @@ public class FileController {
         );
 
         return ResponseEntity
-                .status(HttpStatus.OK)
+                .status(HttpStatus.CREATED)
                 .body(RsData.success("파일 업로드 성공", res));
     }
 
-    @GetMapping(value = "/read/{attachmentId}")
+    @GetMapping(value = "/{attachmentId}")
     @Operation(
-            summary = "파일 정보 조회",
+            summary = "개별 파일 정보 조회",
             description = "attachmentId를 이용해 저장된 파일 정보를 조회하고, 해당 파일의 Public URL을 반환합니다."
     )
     public ResponseEntity<RsData<FileReadResponseDto>> getFile(
@@ -61,7 +61,7 @@ public class FileController {
     }
 
 
-    @PutMapping(value = "/update/{attachmentId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/{attachmentId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Operation(
             summary = "파일 업데이트",
             description = "기존 attachmentId에 연결된 파일을 새로운 MultipartFile로 교체하고, 변경된 파일의 Public URL을 반환합니다."
@@ -82,7 +82,7 @@ public class FileController {
                 .body(RsData.success("파일 업데이트 성공", res));
     }
 
-    @DeleteMapping(value = "/delete/{attachmentId}")
+    @DeleteMapping(value = "/{attachmentId}")
     @Operation(
             summary = "파일 삭제",
             description = "attachmentId에 해당하는 파일을 삭제합니다."
